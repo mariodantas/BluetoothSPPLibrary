@@ -109,8 +109,10 @@ public class DeviceList extends Activity {
                 mPairedDevicesArrayAdapter.add(device.getName() + "\n" + device.getAddress());
             }
         } else {
-            String noDevices = "No devices found";
-            mPairedDevicesArrayAdapter.add(noDevices);
+            String strNoFound = getIntent().getStringExtra("no_devices_found");
+            if(strNoFound == null)
+                strNoFound = "No devices found";
+            mPairedDevicesArrayAdapter.add(strNoFound);
         }
     }
 
